@@ -15,6 +15,13 @@ The following news categories are available as of this documentation:
 
 The reader is able to leave comments that other readers can view and continue the conversation.
 
+
+
+## Screenshots
+
+![App Screenshot]()
+
+
 ## Acknowledgements
 
  - [Inshorts API](https://github.com/cyberboysumanjay/Inshorts-News-API)
@@ -28,10 +35,12 @@ The reader is able to leave comments that other readers can view and continue th
 ```
 
 #### Get item
+Make a get request specifying the category of news you want
 
 ```http
   https://inshorts.deta.dev/news?category={category_name}
 ```
+Example : https://inshorts.deta.dev/news?category=business
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
@@ -84,6 +93,4 @@ Open VScode to view the folders in your code editor.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
 

@@ -19,7 +19,8 @@ The reader is able to leave comments that other readers can view and continue th
 
 ## Screenshots
 
-![App Screenshot]()
+![Inshorts2](https://user-images.githubusercontent.com/126860107/230666776-5292d643-60ff-4a8a-8afc-3d17bb3e31f6.jpg)
+
 
 
 ## Acknowledgements

@@ -15,14 +15,6 @@ The following news categories are available as of this documentation:
 
 The reader is able to leave comments that other readers can view and continue the conversation.
 
-
-
-## Screenshots
-
-![App Screenshot](![Uploading inshorts.PNG…]
-)
-
-
 ## Acknowledgements
 
  - [Inshorts API](https://github.com/cyberboysumanjay/Inshorts-News-API)

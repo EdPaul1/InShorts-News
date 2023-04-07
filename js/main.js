@@ -31,153 +31,300 @@ function loadDefaultEndpoints() {
 
 function firstGrid(endpoint = 'https://inshorts.deta.dev/news?category=business') {
     const firstDiv = document.getElementById('firstDiv');
-    fetch(endpoint)
-        .then(response => response.json())
-        .then((news) => {
-            const firstImage = document.getElementById('firstImage');
-            firstImage.src = news.data[0].imageUrl;
-            firstImage.height = 265;
-            firstImage.width = 340;
+    let currentIndex = 0;
+    let newsData = [];
 
-            const firsttitle = document.getElementById('firsttitle');
-            firsttitle.textContent = news.data[0].title;
+    function updateGrid() {
+        if (newsData.length === 0) {
+            fetch(endpoint)
+                .then(response => response.json())
+                .then((news) => {
+                    newsData = news.data;
+                    updateNewsItem();
+                });
+        } else {
+            currentIndex++;
+            if (currentIndex >= newsData.length) {
+                currentIndex = 0;
+            }
+            updateNewsItem();
+        }
+    }
 
-            firsttitle.addEventListener("mouseover", () => {
-                firsttitle.classList.add("hover");
-            });
+    function updateNewsItem() {
+        const newsItem = newsData[currentIndex];
+        const firstImage = document.getElementById('firstImage');
+        firstImage.src = newsItem.imageUrl;
+        firstImage.height = 265;
+        firstImage.width = 340;
 
-            firsttitle.addEventListener("mouseout", () => {
-                firsttitle.classList.remove("hover");
-            });
+        const firsttitle = document.getElementById('firsttitle');
+        firsttitle.textContent = newsItem.title;
 
-            firsttitle.addEventListener("click", () => {
-                window.location.href = news.data[0].url;
-            });
+        firsttitle.addEventListener("mouseover", () => {
+            firsttitle.classList.add("hover");
         });
+
+        firsttitle.addEventListener("mouseout", () => {
+            firsttitle.classList.remove("hover");
+        });
+
+        firsttitle.addEventListener("click", () => {
+            window.location.href = newsItem.url;
+        });
+    }
+
+    setInterval(() => {
+        updateGrid();
+    }, 3505);
 }
 
+function secondGrid(endpoint = 'https://inshorts.deta.dev/news?category=politics') {
+    const secondDiv = document.getElementById('secondDiv');
+    let currentIndex2 = 0;
+    let newsData2 = [];
 
-    function secondGrid(){
-    const secondDiv = document.getElementById('secondDiv')
-        fetch('https://inshorts.deta.dev/news?category=politics')
-        .then(response => response.json())
-        .then((news) => {
-            const secondImage = document.getElementById('secondImage')
-            secondImage.src = news.data[0].imageUrl;
-            secondImage.height = 265;
-            secondImage.width = 340;
-
-            const secondtitle = document.getElementById('secondtitle')
-            secondtitle.textContent = news.data[0].title
-
-            secondtitle.addEventListener("mouseover", () => {
-                secondtitle.classList.add("hover"); // Add the "hover" class to the element
-              });
-              secondtitle.addEventListener("mouseout", () => {
-                secondtitle.classList.remove("hover"); // Remove the "hover" class from the element
-              });
-              secondtitle.addEventListener("click", () => {
-                window.location.href = news.data[0].url; // Replace with the URL you want to redirect to
-              });
-        })
+    function updateGrid2() {
+        if (newsData2.length === 0) {
+            fetch(endpoint)
+                .then(response => response.json())
+                .then((news) => {
+                    newsData2 = news.data;
+                    updateNewsItem2();
+                });
+        } else {
+            currentIndex2++;
+            if (currentIndex2 >= newsData2.length) {
+                currentIndex2 = 0;
+            }
+            updateNewsItem2();
+        }
     }
-    function thirdGrid(){
-    const thirdDiv = document.getElementById('thirdDiv')
-        fetch('https://inshorts.deta.dev/news?category=technology')
-        .then(response => response.json())
-        .then((news) => {
-            const thirdImage = document.getElementById('thirdImage')
-            thirdImage.src = news.data[0].imageUrl;
-            thirdImage.height = 265;
-            thirdImage.width = 340;
 
-            const thirdtitle = document.getElementById('thirdtitle')
-            thirdtitle.textContent = news.data[0].title
+    function updateNewsItem2() {
+        const newsItem2 = newsData2[currentIndex2];
+        const secondImage2 = document.getElementById('secondImage');
+        secondImage2.src = newsItem2.imageUrl;
+        secondImage2.height = 265;
+        secondImage2.width = 340;
 
-            thirdtitle.addEventListener("mouseover", () => {
-                thirdtitle.classList.add("hover"); // Add the "hover" class to the element
-              });
-              thirdtitle.addEventListener("mouseout", () => {
-                thirdtitle.classList.remove("hover"); // Remove the "hover" class from the element
-              });
-              thirdtitle.addEventListener("click", () => {
-                window.location.href = news.data[0].url; // Replace with the URL you want to redirect to
-              });
-        })
+        const secondtitle2 = document.getElementById('secondtitle');
+        secondtitle2.textContent = newsItem2.title;
+
+        secondtitle2.addEventListener("mouseover", () => {
+            secondtitle2.classList.add("hover");
+        });
+
+        secondtitle2.addEventListener("mouseout", () => {
+            secondtitle2.classList.remove("hover");
+        });
+
+        secondtitle2.addEventListener("click", () => {
+            window.location.href = newsItem2.url;
+        });
     }
-    function fourthGrid(){
-    const fourthDiv = document.getElementById('fourthDiv')
-        fetch('https://inshorts.deta.dev/news?category=startup')
-        .then(response => response.json())
-        .then((news) => {
-            const fourthImage = document.getElementById('fourthImage')
-            fourthImage.src = news.data[0].imageUrl;
-            fourthImage.height = 265;
-            fourthImage.width = 340;
 
-            const fourthtitle = document.getElementById('fourthtitle')
-            fourthtitle.textContent = news.data[0].title
+    setInterval(() => {
+        updateGrid2();
+    }, 3400);
+}
 
-            fourthtitle.addEventListener("mouseover", () => {
-                fourthtitle.classList.add("hover"); // Add the "hover" class to the element
-              });
-              fourthtitle.addEventListener("mouseout", () => {
-                fourthtitle.classList.remove("hover"); // Remove the "hover" class from the element
-              });
-              fourthtitle.addEventListener("click", () => {
-                window.location.href = news.data[0].url; // Replace with the URL you want to redirect to
-              });
-        })
+function thirdGrid(endpoint = 'https://inshorts.deta.dev/news?category=technology') {
+    const thirdDiv = document.getElementById('thirdDiv');
+    let currentIndex3 = 0;
+    let newsData3 = [];
+
+    function updateGrid3() {
+        if (newsData3.length === 0) {
+            fetch(endpoint)
+                .then(response => response.json())
+                .then((news) => {
+                    newsData3 = news.data;
+                    updateNewsItem3();
+                });
+        } else {
+            currentIndex3++;
+            if (currentIndex3 >= newsData3.length) {
+                currentIndex3 = 0;
+            }
+            updateNewsItem3();
+        }
     }
-    function fifthGrid(){
-    const fifthDiv = document.getElementById('fifthDiv')
-        fetch('https://inshorts.deta.dev/news?category=entertainment')
-        .then(response => response.json())
-        .then((news) => {
-            const fifthImage = document.getElementById('fifthImage')
-            fifthImage.src = news.data[0].imageUrl;
-            fifthImage.height = 265;
-            fifthImage.width = 340;
 
-            const fifthtitle = document.getElementById('fifthtitle')
-            fifthtitle.textContent = news.data[0].title
+    function updateNewsItem3() {
+        const newsItem3 = newsData3[currentIndex3];
+        const secondImage3 = document.getElementById('thirdImage');
+        secondImage3.src = newsItem3.imageUrl;
+        secondImage3.height = 265;
+        secondImage3.width = 340;
 
-            fifthtitle.addEventListener("mouseover", () => {
-                fifthtitle.classList.add("hover"); // Add the "hover" class to the element
-              });
-              fifthtitle.addEventListener("mouseout", () => {
-                fifthtitle.classList.remove("hover"); // Remove the "hover" class from the element
-              });
-              fifthtitle.addEventListener("click", () => {
-                window.location.href = news.data[0].url; // Replace with the URL you want to redirect to
-              });
-        })
-        
+        const secondtitle3 = document.getElementById('thirdtitle');
+        secondtitle3.textContent = newsItem3.title;
+
+        secondtitle3.addEventListener("mouseover", () => {
+            secondtitle3.classList.add("hover");
+        });
+
+        secondtitle3.addEventListener("mouseout", () => {
+            secondtitle3.classList.remove("hover");
+        });
+
+        secondtitle3.addEventListener("click", () => {
+            window.location.href = newsItem3.url;
+        });
     }
-    function sixthGrid(){
-    const sixthDiv = document.getElementById('sixthDiv')
-        fetch('https://inshorts.deta.dev/news?category=science')
-        .then(response => response.json())
-        .then((news) => {
-            const sixthImage = document.getElementById('sixthImage')
-            sixthImage.src = news.data[0].imageUrl;
-            sixthImage.height = 265;
-            sixthImage.width = 340;
 
-            const sixthtitle = document.getElementById('sixthtitle')
-            sixthtitle.textContent = news.data[0].title
+    setInterval(() => {
+        updateGrid3();
+    }, 3300);
+}
+function fourthGrid(endpoint = 'https://inshorts.deta.dev/news?category=startup') {
+    const fourthDiv = document.getElementById('fourthDiv');
+    let currentIndex4 = 0;
+    let newsData4 = [];
 
-            sixthtitle.addEventListener("mouseover", () => {
-                sixthtitle.classList.add("hover"); // Add the "hover" class to the element
-              });
-              sixthtitle.addEventListener("mouseout", () => {
-                sixthtitle.classList.remove("hover"); // Remove the "hover" class from the element
-              });
-              sixthtitle.addEventListener("click", () => {
-                window.location.href = news.data[0].url; // Replace with the URL you want to redirect to
-              });
-        })
+    function updateGrid4() {
+        if (newsData4.length === 0) {
+            fetch(endpoint)
+                .then(response => response.json())
+                .then((news) => {
+                    newsData4 = news.data;
+                    updateNewsItem4();
+                });
+        } else {
+            currentIndex4++;
+            if (currentIndex4 >= newsData4.length) {
+                currentIndex4 = 0;
+            }
+            updateNewsItem4();
+        }
     }
+
+    function updateNewsItem4() {
+        const newsItem4 = newsData4[currentIndex4];
+        const secondImage4 = document.getElementById('fourthImage');
+        secondImage4.src = newsItem4.imageUrl;
+        secondImage4.height = 265;
+        secondImage4.width = 340;
+
+        const secondtitle4 = document.getElementById('fourthtitle');
+        secondtitle4.textContent = newsItem4.title;
+
+        secondtitle4.addEventListener("mouseover", () => {
+            secondtitle4.classList.add("hover");
+        });
+
+        secondtitle4.addEventListener("mouseout", () => {
+            secondtitle4.classList.remove("hover");
+        });
+
+        secondtitle4.addEventListener("click", () => {
+            window.location.href = newsItem4.url;
+        });
+    }
+
+    setInterval(() => {
+        updateGrid4();
+    }, 3500);
+}
+function fifthGrid(endpoint = 'https://inshorts.deta.dev/news?category=entertainment') {
+    const fifthDiv = document.getElementById('fifthDiv');
+    let currentIndex5 = 0;
+    let newsData5 = [];
+
+    function updateGrid5() {
+        if (newsData5.length === 0) {
+            fetch(endpoint)
+                .then(response => response.json())
+                .then((news) => {
+                    newsData5 = news.data;
+                    updateNewsItem5();
+                });
+        } else {
+            currentIndex5++;
+            if (currentIndex5 >= newsData5.length) {
+                currentIndex5 = 0;
+            }
+            updateNewsItem5();
+        }
+    }
+
+    function updateNewsItem5() {
+        const newsItem5 = newsData5[currentIndex5];
+        const secondImage5 = document.getElementById('fifthImage');
+        secondImage5.src = newsItem5.imageUrl;
+        secondImage5.height = 265;
+        secondImage5.width = 340;
+
+        const secondtitle5 = document.getElementById('fifthtitle');
+        secondtitle5.textContent = newsItem5.title;
+
+        secondtitle5.addEventListener("mouseover", () => {
+            secondtitle5.classList.add("hover");
+        });
+
+        secondtitle5.addEventListener("mouseout", () => {
+            secondtitle5.classList.remove("hover");
+        });
+
+        secondtitle5.addEventListener("click", () => {
+            window.location.href = newsItem5.url;
+        });
+    }
+
+    setInterval(() => {
+        updateGrid5();
+    }, 3550);
+}
+function sixthGrid(endpoint = 'https://inshorts.deta.dev/news?category=science') {
+    const sixthDiv = document.getElementById('sixthDiv');
+    let currentIndex6 = 0;
+    let newsData6 = [];
+
+    function updateGrid6() {
+        if (newsData6.length === 0) {
+            fetch(endpoint)
+                .then(response => response.json())
+                .then((news) => {
+                    newsData6 = news.data;
+                    updateNewsItem6();
+                });
+        } else {
+            currentIndex6++;
+            if (currentIndex6 >= newsData6.length) {
+                currentIndex6 = 0;
+            }
+            updateNewsItem6();
+        }
+    }
+
+    function updateNewsItem6() {
+        const newsItem6 = newsData6[currentIndex6];
+        const secondImage6 = document.getElementById('sixthImage');
+        secondImage6.src = newsItem6.imageUrl;
+        secondImage6.height = 265;
+        secondImage6.width = 340;
+
+        const secondtitle6 = document.getElementById('sixthtitle');
+        secondtitle6.textContent = newsItem6.title;
+
+        secondtitle6.addEventListener("mouseover", () => {
+            secondtitle6.classList.add("hover");
+        });
+
+        secondtitle6.addEventListener("mouseout", () => {
+            secondtitle6.classList.remove("hover");
+        });
+
+        secondtitle6.addEventListener("click", () => {
+            window.location.href = newsItem6.url;
+        });
+    }
+
+    setInterval(() => {
+        updateGrid6();
+    }, 3200);
+}
 
     const commentForm = document.getElementById('commentForm')
     

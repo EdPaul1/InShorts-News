@@ -1,45 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
+    loadDefaultEndpoints(); // Load data with default endpoints on page load
 
-    const userInput = document.getElementById('my-input')
-    userInput.addEventListener('input', (e)=>{
-        e.preventDefault()
-    const inputValue = e.target.value;
-    console.log("Input value:", inputValue);
-    })
+    const userInput = document.getElementById('my-input');
 
-    // if(inputValue === true){
-    //     firstGrid(inputValue)
-    //     secondGrid(inputValue)
-    //     thirdGrid(inputValue)
-    //     fourthGrid(inputValue)
-    //     fifthGrid(inputValue)
-    //     sixthGrid(inputValue)
-    // }else {
-        firstGrid()
-        secondGrid()
-        thirdGrid()
-        fourthGrid()
-        fifthGrid()
-        sixthGrid()
-    
-})
+    userInput.addEventListener('input', (e) => {
+        e.preventDefault();
+        const inputValue = e.target.value.trim();
 
+        if (inputValue) {
+            firstGrid(inputValue);
+            secondGrid(inputValue);
+            thirdGrid(inputValue);
+            fourthGrid(inputValue);
+            fifthGrid(inputValue);
+            sixthGrid(inputValue);
+        } else {
+            loadDefaultEndpoints(); // Load data with default endpoints if input is empty
+        }
+    });
+});
 
-    function firstGrid(){
-    const firstDiv = document.getElementById('firstDiv')
-        fetch('https://inshorts.deta.dev/news?category=business')
+function loadDefaultEndpoints() {
+    firstGrid();
+    secondGrid();
+    thirdGrid();
+    fourthGrid();
+    fifthGrid();
+    sixthGrid();
+}
+
+function firstGrid(endpoint = 'https://inshorts.deta.dev/news?category=business') {
+    const firstDiv = document.getElementById('firstDiv');
+    fetch(endpoint)
         .then(response => response.json())
         .then((news) => {
-            const firstDiv = document.getElementById('firstDiv')
-            const firstImage = document.getElementById('firstImage')
+            const firstImage = document.getElementById('firstImage');
             firstImage.src = news.data[0].imageUrl;
             firstImage.height = 265;
             firstImage.width = 340;
 
-            const firsttitle = document.getElementById('firsttitle')
-            firsttitle.textContent = news.data[0].title
-        })
-    }
+            const firsttitle = document.getElementById('firsttitle');
+            firsttitle.textContent = news.data[0].title;
+
+            firsttitle.addEventListener("mouseover", () => {
+                firsttitle.classList.add("hover");
+            });
+
+            firsttitle.addEventListener("mouseout", () => {
+                firsttitle.classList.remove("hover");
+            });
+
+            firsttitle.addEventListener("click", () => {
+                window.location.href = news.data[0].url;
+            });
+        });
+}
+
+
     function secondGrid(){
     const secondDiv = document.getElementById('secondDiv')
         fetch('https://inshorts.deta.dev/news?category=politics')
@@ -52,6 +69,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const secondtitle = document.getElementById('secondtitle')
             secondtitle.textContent = news.data[0].title
+
+            secondtitle.addEventListener("mouseover", () => {
+                secondtitle.classList.add("hover"); // Add the "hover" class to the element
+              });
+              secondtitle.addEventListener("mouseout", () => {
+                secondtitle.classList.remove("hover"); // Remove the "hover" class from the element
+              });
+              secondtitle.addEventListener("click", () => {
+                window.location.href = news.data[0].url; // Replace with the URL you want to redirect to
+              });
         })
     }
     function thirdGrid(){
@@ -66,6 +93,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const thirdtitle = document.getElementById('thirdtitle')
             thirdtitle.textContent = news.data[0].title
+
+            thirdtitle.addEventListener("mouseover", () => {
+                thirdtitle.classList.add("hover"); // Add the "hover" class to the element
+              });
+              thirdtitle.addEventListener("mouseout", () => {
+                thirdtitle.classList.remove("hover"); // Remove the "hover" class from the element
+              });
+              thirdtitle.addEventListener("click", () => {
+                window.location.href = news.data[0].url; // Replace with the URL you want to redirect to
+              });
         })
     }
     function fourthGrid(){
@@ -80,6 +117,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const fourthtitle = document.getElementById('fourthtitle')
             fourthtitle.textContent = news.data[0].title
+
+            fourthtitle.addEventListener("mouseover", () => {
+                fourthtitle.classList.add("hover"); // Add the "hover" class to the element
+              });
+              fourthtitle.addEventListener("mouseout", () => {
+                fourthtitle.classList.remove("hover"); // Remove the "hover" class from the element
+              });
+              fourthtitle.addEventListener("click", () => {
+                window.location.href = news.data[0].url; // Replace with the URL you want to redirect to
+              });
         })
     }
     function fifthGrid(){
@@ -94,6 +141,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const fifthtitle = document.getElementById('fifthtitle')
             fifthtitle.textContent = news.data[0].title
+
+            fifthtitle.addEventListener("mouseover", () => {
+                fifthtitle.classList.add("hover"); // Add the "hover" class to the element
+              });
+              fifthtitle.addEventListener("mouseout", () => {
+                fifthtitle.classList.remove("hover"); // Remove the "hover" class from the element
+              });
+              fifthtitle.addEventListener("click", () => {
+                window.location.href = news.data[0].url; // Replace with the URL you want to redirect to
+              });
         })
         
     }
@@ -109,6 +166,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const sixthtitle = document.getElementById('sixthtitle')
             sixthtitle.textContent = news.data[0].title
+
+            sixthtitle.addEventListener("mouseover", () => {
+                sixthtitle.classList.add("hover"); // Add the "hover" class to the element
+              });
+              sixthtitle.addEventListener("mouseout", () => {
+                sixthtitle.classList.remove("hover"); // Remove the "hover" class from the element
+              });
+              sixthtitle.addEventListener("click", () => {
+                window.location.href = news.data[0].url; // Replace with the URL you want to redirect to
+              });
         })
     }
 

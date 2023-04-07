@@ -54,12 +54,17 @@ nav {
   width: 201px;
   height: 260px;
 }
-.firsttitle {
+.firstDiv {
+  position: relative;
+}
+
+#firsttitle, #secondtitle, #thirdtitle,#fourthtitle,#fifthtitle,#sixthtitle {
+  font-size: 15px;
+  color: white;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+  margin-top: 195px;
+  width: 25%;
+  font-family: 'Lora', serif;
 }
 #my-id {
   color: black;

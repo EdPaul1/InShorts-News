@@ -36,10 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
             firstImage.height = 265;
             firstImage.width = 340;
 
-            // const firsttitle = document.getElementById('firsttitle')
-            // firsttitle.textContent = news.data[0].title
-            // firstDiv.appendChild(firstImage)
-            // firstDiv.appendChild(firsttitle)
+            const firsttitle = document.getElementById('firsttitle')
+            firsttitle.textContent = news.data[0].title
         })
     }
     function secondGrid(){
@@ -51,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
             secondImage.src = news.data[0].imageUrl;
             secondImage.height = 265;
             secondImage.width = 340;
+
+            const secondtitle = document.getElementById('secondtitle')
+            secondtitle.textContent = news.data[0].title
         })
     }
     function thirdGrid(){
@@ -62,6 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
             thirdImage.src = news.data[0].imageUrl;
             thirdImage.height = 265;
             thirdImage.width = 340;
+
+            const thirdtitle = document.getElementById('thirdtitle')
+            thirdtitle.textContent = news.data[0].title
         })
     }
     function fourthGrid(){
@@ -73,6 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
             fourthImage.src = news.data[0].imageUrl;
             fourthImage.height = 265;
             fourthImage.width = 340;
+
+            const fourthtitle = document.getElementById('fourthtitle')
+            fourthtitle.textContent = news.data[0].title
         })
     }
     function fifthGrid(){
@@ -84,6 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
             fifthImage.src = news.data[0].imageUrl;
             fifthImage.height = 265;
             fifthImage.width = 340;
+
+            const fifthtitle = document.getElementById('fifthtitle')
+            fifthtitle.textContent = news.data[0].title
         })
         
     }
@@ -96,6 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
             sixthImage.src = news.data[0].imageUrl;
             sixthImage.height = 265;
             sixthImage.width = 340;
+
+            const sixthtitle = document.getElementById('sixthtitle')
+            sixthtitle.textContent = news.data[0].title
         })
     }
 

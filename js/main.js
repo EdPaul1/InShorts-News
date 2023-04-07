@@ -76,7 +76,7 @@ function firstGrid(endpoint = 'https://inshorts.deta.dev/news?category=business'
 
     setInterval(() => {
         updateGrid();
-    }, 3505);
+    }, 4050);
 }
 
 function secondGrid(endpoint = 'https://inshorts.deta.dev/news?category=politics') {
@@ -126,7 +126,7 @@ function secondGrid(endpoint = 'https://inshorts.deta.dev/news?category=politics
 
     setInterval(() => {
         updateGrid2();
-    }, 3400);
+    }, 4025);
 }
 
 function thirdGrid(endpoint = 'https://inshorts.deta.dev/news?category=technology') {
@@ -176,7 +176,7 @@ function thirdGrid(endpoint = 'https://inshorts.deta.dev/news?category=technolog
 
     setInterval(() => {
         updateGrid3();
-    }, 3300);
+    }, 4030);
 }
 function fourthGrid(endpoint = 'https://inshorts.deta.dev/news?category=startup') {
     const fourthDiv = document.getElementById('fourthDiv');
@@ -225,7 +225,7 @@ function fourthGrid(endpoint = 'https://inshorts.deta.dev/news?category=startup'
 
     setInterval(() => {
         updateGrid4();
-    }, 3500);
+    }, 4035);
 }
 function fifthGrid(endpoint = 'https://inshorts.deta.dev/news?category=entertainment') {
     const fifthDiv = document.getElementById('fifthDiv');
@@ -274,7 +274,7 @@ function fifthGrid(endpoint = 'https://inshorts.deta.dev/news?category=entertain
 
     setInterval(() => {
         updateGrid5();
-    }, 3550);
+    }, 4015);
 }
 function sixthGrid(endpoint = 'https://inshorts.deta.dev/news?category=science') {
     const sixthDiv = document.getElementById('sixthDiv');
@@ -323,7 +323,7 @@ function sixthGrid(endpoint = 'https://inshorts.deta.dev/news?category=science')
 
     setInterval(() => {
         updateGrid6();
-    }, 3200);
+    }, 4000);
 }
 
     const commentForm = document.getElementById('commentForm')

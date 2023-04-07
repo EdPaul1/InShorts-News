@@ -1,0 +1,138 @@
+* {
+  font-family: Helvetica;
+  font-size: 1.4em;
+  color: black;
+  text-align: center;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+nav {
+  display: flex;
+  position: sticky;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: #A0D2DB;
+  font-family: "Montserrat", sans-serif;
+}
+.search {
+  font-size: 9px;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  margin-top: 40px;
+  grid-template-columns: 25% 25% 25%;
+  grid-auto-rows: 6em;
+  grid-gap: 10px;
+}
+
+.container div:nth-child(1), div:nth-child(6) {
+  background-color: #B8336A;
+}
+
+.container div:nth-child(2), div:nth-child(7) {
+  background-color: #726DA8;
+}
+
+.container div:nth-child(3), div:nth-child(8) {
+  background-color: #7D8CC4;
+}
+
+.container div:nth-child(4) {
+  background-color: #A0D2DB;
+}
+
+.container div:nth-child(5) {
+  background-color: #C490D1;
+}
+.firstImage {
+  width: 201px;
+  height: 260px;
+}
+.firsttitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+#my-id {
+  color: black;
+}
+.comment-section {
+  font-size: 10px;
+  max-width: 400px;
+  margin: 20px auto;
+  /* margin-top: 20px; */
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.comment-section h2 {
+  margin-bottom: 20px;
+}
+
+.comment-section form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.comment-section form input,
+.comment-section form textarea {
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.comment-section form textarea {
+  height: 150px;
+}
+
+.comment-section form button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.comment-section form button:hover {
+  background-color: #3e8e41;
+}
+
+.comments-list {
+  list-style: none;
+  margin-top: 30px;
+  padding: 0;
+}
+
+.comments-list li {
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.comments-list .comment h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.comments-list .comment p {
+  margin: 0;
+  font-size: 20px;
+}
+.footer {
+  font-size: 5px;
+}

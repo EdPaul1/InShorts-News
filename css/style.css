@@ -1,5 +1,5 @@
 * {
-  font-family: Helvetica;
+  font-family: 'Lora', serif;
   font-size: 1.4em;
   color: black;
   text-align: center;
@@ -15,7 +15,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background-color: #A0D2DB;
+  background-color: #D03D56;
   font-family: "Montserrat", sans-serif;
 }
 .search {
@@ -140,4 +140,12 @@ nav {
 }
 .footer {
   font-size: 5px;
+}
+.hover {
+  color: black;
+  text-decoration: none;
+}
+.hover:hover {
+  color: red;
+  text-decoration: underline;
 }
